@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 
+import CustomPanel from '~components/inspector/panels/components/CustomPanel'
 import ButtonPanel from '~components/inspector/panels/components/ButtonPanel'
 import BadgePanel from '~components/inspector/panels/components/BadgePanel'
 import IconPanel from '~components/inspector/panels/components/IconPanel'
@@ -61,6 +62,7 @@ const Panels: React.FC<{ component: IComponent; isRoot: boolean }> = ({
 
   return (
     <>
+      {type === 'CustomComponent' && <CustomPanel />}
       {type === 'Button' && <ButtonPanel />}
       {type === 'Checkbox' && <CheckboxPanel />}
       {type === 'Box' && <BoxPanel />}

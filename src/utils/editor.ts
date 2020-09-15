@@ -7,6 +7,7 @@ const ALERT_COMPONENTS: (ComponentType | MetaComponentType)[] = [
 
 export const COMPONENTS: (ComponentType | MetaComponentType)[] = [
   ...ALERT_COMPONENTS,
+  'CustomComponent',
   'Avatar',
   'AvatarBadge',
   'AvatarGroup',

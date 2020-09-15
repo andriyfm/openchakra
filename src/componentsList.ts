@@ -10,7 +10,8 @@ type MenuItems = Partial<
   }
 >
 
-export const menuItems: MenuItems = {
+export const menuItems: any = {
+  CustomComponent: {},
   Accordion: {
     children: {
       Accordion: {},
@@ -105,7 +106,7 @@ export const menuItems: MenuItems = {
   "TabPanels"*/
 }
 
-export const componentsList: ComponentType[] = [
+export const componentsList: string[] = [
   'Accordion',
   'AccordionHeader',
   'AccordionIcon',
@@ -129,6 +130,7 @@ export const componentsList: ComponentType[] = [
   'CircularProgress',
   'CloseButton',
   'Code',
+  'CustomComponent',
   'Divider',
   'Editable',
   'Flex',

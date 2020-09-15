@@ -108,9 +108,13 @@ type PreviewDefaultProps = {
   List?: any
   ListIcon?: IconProps
   ListItem?: any
+  CustomComponent?: any
 }
 
 export const DEFAULT_PROPS: PreviewDefaultProps = {
+  CustomComponent: {
+    children: 'Test text',
+  },
   Badge: {
     children: 'Badge name',
   },
@@ -270,7 +274,12 @@ export const DEFAULT_FORM_PROPS: PreviewDefaultProps = {
 }
 
 export const getDefaultFormProps = (type: ComponentType) => {
-  const chakraDefaultProps = Chakra[type].defaultProps
+  let chakraDefaultProps
+  if (type === 'CustomComponent') {
+    chakraDefaultProps = DEFAULT_PROPS.CustomComponent
+  } else {
+    chakraDefaultProps = Chakra[type].defaultProps
+  }
 
   return { ...chakraDefaultProps, ...DEFAULT_FORM_PROPS[type] }
 }

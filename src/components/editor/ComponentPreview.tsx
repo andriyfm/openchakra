@@ -19,6 +19,12 @@ import AspectRatioBoxPreview from '~components/editor/previews/AspectRatioBoxPre
 import PreviewContainer from '~components/editor/PreviewContainer'
 import WithChildrenPreviewContainer from '~components/editor/WithChildrenPreviewContainer'
 
+export const CustomComponent = ({ children }) => <div>{children}</div>
+
+CustomComponent.defaultProps = {
+  children: 'Test Text',
+}
+
 const ComponentPreview: React.FC<{
   componentName: string
 }> = ({ componentName, ...forwardedProps }) => {
@@ -138,6 +144,16 @@ const ComponentPreview: React.FC<{
       return <AccordionPanelPreview component={component} />
     case 'AspectRatioBox':
       return <AspectRatioBoxPreview component={component} />
+
+    case 'CustomComponent':
+      return (
+        <PreviewContainer
+          component={component}
+          type={CustomComponent}
+          {...forwardedProps}
+        />
+      )
+
     default:
       return null
   }
